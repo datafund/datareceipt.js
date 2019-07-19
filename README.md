@@ -1,4 +1,6 @@
-## DataReceipt.js implementation 
+## DataReceipt.js 
+A helper library to create FDS accounts, create Consent Receipts JWT tokens, send them over Swarm, decode and verify tokens with additional layer to support Consent Manager smart contract and consent signing on blockchain. 
+
  DataReceipt.js library uses fds.js library to send consent receipt files over Swarm to another account
  ** BEWARE **
  uses FDS.js multibox branch https://github.com/fairDataSociety/fds.js/tree/multibox 
