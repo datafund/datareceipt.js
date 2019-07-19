@@ -16,88 +16,90 @@
 `let fd = new DataReceiptLib();`
 `let password = 'test';`
 `let accountName = 'testAccountName123123';`
-Account must exist
+##### Account must exist
 `let subjectName = 'testAccountName1231234';` 
-Create account (will fail if it exists)
+##### Create account (will fail if it exists)
 `let newAccount  = await fd.createAccount(accountName, password);` 
-get account
+##### get account
 `let account     = await fd.unlockAccount(accountName, password);` 
-Load private key
+##### Load private key
 `let loadPrivKey = await fd.loadPrivateKey(privateKey);` 
-Load Consent Receipt Project
+##### Load Consent Receipt Project
 `let loadSuccess = await fd.loadProject(project);` 
-Sign token in project
+##### Sign token in project
 `let signedToken = await fd.generateToken();`
-Send file ower Swarm and retrieve its Swarm hash
+##### Send file ower Swarm and retrieve its Swarm hash
 `let swarmHash   = await fd.sendDataReceipt(signedToken, subjectName);`  where is cr.jwt stored?
 
 ### How to send from newAccount to newAccount using blockchain 
-Get account address
+##### Get account address
 `let userAddress    = fd.account.address;`
-Retrieve subjects address, this looks subdomain name in ENS
+##### Retrieve subjects address, this looks subdomain name in ENS
 `let subjectAddress = await fd.account.getAddressOf(subjectName);`
 
-get consent manager
+##### get consent manager
 `let CM = await fd.getConsentManager();` 
-create consent for swarm hash
+##### create consent for swarm hash
 `let tx = await CM.createConsent(userAddress, subjectAddress, "0x" + swarmHash);`
 once transaction is finished
 
-get existing consents where account is DataUser
+##### get existing consents where account is DataUser
 `let uc = await CM.getUserConsents();`
 
-get existing consents where account is DataSubject
+##### get existing consents where account is DataSubject
 `let sc = await CM.getSubjectConsents();`
 
-get consents for swarmHash 
+##### get consents for swarmHash 
 `let cf = await CM.getConsentsFor("0x" + swarmHash);` 
 
 #### How to check signatures
 
-Sign last consent as user 
+##### Sign last consent as user 
 `let consent = await fd.getConsent(uc[uc.length - 1]);` 
-Get data location
+##### Get data location
 `let location = consent.swarmHash;`
-check if its signed by user
+##### check if its signed by user
 `let us = await consent.isUserSigned();`
-Signing last consent as user
+##### Signing last consent as user
 `await consent.signUser();`
 
 `let ss = await consent.isSubjectSigned();`
-Signing  consent as subject
+##### Signing  consent as subject
 `await consent.signSubject();`
 
-Update existing consent with new consent and data at new swarm location
+##### Update existing consent with new consent and data at new swarm location
 `let tx = await CM.updateConsent(prevConsentAddress, "0x" + swarmHash);`
 
      
-display and check all user consents 
+##### display and check all user consents 
 `let uc = await CM.getUserConsents();`
-Iterate through consents
+##### Iterate through consents
 `await fd.asyncForEach(uc, async (consentAddress) => { ... }` 
 
 `let consent = await fd.getConsent(consentAddress);`
 
-Check is user signed consent
+##### Check is user signed consent
 `let us = await consent.isUserSigned();`
-Check if subject signed consent
+##### Check if subject signed consent
 `let ss = await consent.isSubjectSigned();`
-Check if both parties signed
+##### Check if both parties signed
 `let s = await consent.isSigned();`
-Check if consent is still valid
+##### Check if consent is still valid
 `letv = await consent.isValid();`
 
-Consent update trigger previous consent to be revoked
+##### Consent update trigger previous consent to be revoked
 if updated anything else than 0x0000000000000000000000000000000000000000
 then consent was updated with another consent.
+
 `let updated = await consent.isUpdatedWith();` 
 
-Get consent status Return values 
+##### Get consent status
+Return values 
          0 - waiting for signatures
          1 - active 
          2 - expired
          3 - revoked 
 `status = await consent.status();` 
 
-get all received messages 
+##### get all received messages 
 `let messages = await fd.getReceivedMessages(true);` 
