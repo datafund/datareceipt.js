@@ -14,7 +14,11 @@
  10. log out all messages that are cr.jwt tokens
  
 ## fds.js settings 
-`window.FDS = new FDS({
+you need to provide FDS object in window.FDS property for fds.js and datareceipt.js to work with Noordung blockchain 
+https://noordung.fairdatasociety.org/  https://blockscout.noordung.fairdatasociety.org/
+
+```
+window.FDS = new FDS({
     swarmGateway: 'https://swarm.fairdatasociety.org',
     ethGateway: 'https://geth-noordung.fairdatasociety.org',
     faucetAddress: 'https://dfaucet-testnet-prod.herokuapp.com/gimmie',
@@ -28,7 +32,8 @@
     },
     // multibox extension
     applicationDomain: "/shared/consents/"
-});` 
+}); 
+```
 
 ### Sample usage
 `let fd = new DataReceiptLib();`
