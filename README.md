@@ -1,5 +1,6 @@
 ## DataReceipt.js implementation 
  DataReceipt.js library uses fds.js library to send consent receipt files over Swarm to another account
+ uses FDS.js multibox branch https://github.com/fairDataSociety/fds.js/tree/multibox 
  
  1. create account 
  2. unlock account 
@@ -11,6 +12,23 @@
  8. for each received file check if its cr.jwt token 
  9. decode token and verify 
  10. log out all messages that are cr.jwt tokens
+ 
+## fds.js settings 
+`window.FDS = new FDS({
+    swarmGateway: 'https://swarm.fairdatasociety.org',
+    ethGateway: 'https://geth-noordung.fairdatasociety.org',
+    faucetAddress: 'https://dfaucet-testnet-prod.herokuapp.com/gimmie',
+    httpTimeout: 1000,
+    gasPrice: 0.1,
+    ensConfig: {
+        domain: 'datafund.eth',
+        registryAddress: '0xc11f4427a0261e5ca508c982e747851e29c48e83',
+        fifsRegistrarContractAddress: '0x01591702cb0c1d03b15355b2fab5e6483b6db9a7',
+        resolverContractAddress: '0xf70816e998819443d5506f129ef1fa9f9c6ff5a7'
+    },
+    // multibox extension
+    applicationDomain: "/shared/consents/"
+});` 
 
 ### Sample usage
 `let fd = new DataReceiptLib();`
