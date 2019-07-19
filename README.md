@@ -15,7 +15,8 @@
  
 ## fds.js settings 
 you need to provide FDS object in window.FDS property for fds.js and datareceipt.js to work with Noordung blockchain 
-https://noordung.fairdatasociety.org/  https://blockscout.noordung.fairdatasociety.org/
+View network: https://noordung.fairdatasociety.org/  
+Block explorer: https://blockscout.noordung.fairdatasociety.org/
 
 ```
 window.FDS = new FDS({
