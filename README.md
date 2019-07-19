@@ -1,5 +1,6 @@
 ## DataReceipt.js implementation 
  DataReceipt.js library uses fds.js library to send consent receipt files over Swarm to another account
+ ** BEWARE **
  uses FDS.js multibox branch https://github.com/fairDataSociety/fds.js/tree/multibox 
  
  1. create account 
