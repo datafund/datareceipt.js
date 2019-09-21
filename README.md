@@ -84,7 +84,7 @@ Get consent contract for for swarmHash `let cf = await CM.getConsentsFor("0x" + 
 Get consent contract with address
 `let consent = await fd.getConsent(consentContractAddress);`
 
-Once consent contract interface class allows:
+Consent contract interface class allows:
  - status query
  - signing for subject and user
  
