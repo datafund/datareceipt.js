@@ -105,7 +105,7 @@ Check consent status meanings
 `let status = await consent.status();`
 
 ##### Updating existing consents
-Existing consents can be updated with new consents. Old consent is invalidate, and references new consent
+Existing consents can be updated with new consents. Old consent is invalidated and references new consent
 `let tx = await CM.updateConsent(prevConsentAddress, "0x" + swarmHash);`
 
 To get updated consent contract address use:
