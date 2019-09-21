@@ -40,12 +40,11 @@ window.FDS = new FDS({
 }); 
 ```
 
-##### First steps 
+##### First steps
 Initialize library
-`let fd = new DataReceiptLib();` 
+`let fd = new DataReceiptLib();`
 Create account (will fail if it exists)
 `let newAccount  = await fd.createAccount(accountName, password);`
-
 Unlock account
 `let account     = await fd.unlockAccount(accountName, password);`
 Load Private Key
@@ -64,7 +63,6 @@ To get account address
 `let userAddress    = fd.account.address;`
 To get address of receiver subject
 `let subjectAddress = await fd.account.getAddressOf(subjectName);`
-
 Get consent manager contract
 `let CM = await fd.getConsentManager(); `
 Create consent contract
