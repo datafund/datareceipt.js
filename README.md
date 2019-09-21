@@ -70,10 +70,8 @@ Create consent contract
 
 Get array of existing consent contract addresses where account is user
 `let uc = await CM.getUserConsents();`
-
 Get array of existing consent contract addresses where account is subject
 `let sc = await CM.getSubjectConsents();`
-
 Get consent contract for for swarmHash 
 `let cf = await CM.getConsentsFor("0x" + swarmHash);`
 
@@ -85,14 +83,15 @@ Once consent contract interface class allows:
  - status query
  - signing for subject and user
  
-For consent to be valid, both parties must sign it. 
-To check if its signed by user
+For consent to be valid, both parties must sign it. To check if its signed by user
 `let us = await consent.isUserSigned();` 
 or if subject signed it 
 `let ss = await consent.isSubjectSigned();`
 
-Alternatively you user or subject can sign directly
-using `await consent.signUser();` or `await consent.signSubject();`
+Alternatively you user or subject can sign directly using 
+`await consent.signUser();` 
+or
+`await consent.signSubject();`
 
 Check consent status meanings
    - 0 - waiting for signatures
@@ -100,7 +99,6 @@ Check consent status meanings
    - 2 - expired
    - 3 - revoked 
 `let status = await consent.status();`
-
 
 ##### Updating existing consents
 Existing consents can be updated with new consents. Old consent is invalidate, and references new consent
