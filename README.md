@@ -43,37 +43,46 @@ window.FDS = new FDS({
 ##### First steps
 Initialize library
 `let fd = new DataReceiptLib();`
+
 Create account (will fail if it exists)
 `let newAccount  = await fd.createAccount(accountName, password);`
+
 Unlock account
 `let account     = await fd.unlockAccount(accountName, password);`
+
 Load Private Key
 `let loadPrivKey = await fd.loadPrivateKey(privateKey);`
+
 Load existing project
 `let loadProject = await fd.loadProject(project);`
+
 Generate token
 `let signedToken = await fd.generateToken();`
-Send token to accountName
+
+Send token to accountName 
 `let swarmHash   = await fd.sendDataReceipt(signedToken, accountName);`
 
 ##### How to use Consent Manager and Consent smart contracts
 This part uses blockchain addresses directly.
 
-To get account address
+Get account address 
 `let userAddress    = fd.account.address;`
-To get address of receiver subject
+Get address of receiver subject 
 `let subjectAddress = await fd.account.getAddressOf(subjectName);`
 Get consent manager contract
-`let CM = await fd.getConsentManager(); `
+ `let CM = await fd.getConsentManager();`
 Create consent contract
-`let tx = await CM.createConsent(userAddress, subjectAddress, "0x" + swarmHash);`
+ `let tx = await CM.createConsent(userAddress, subjectAddress, "0x" + swarmHash);`
 
 Get array of existing consent contract addresses where account is user
 `let uc = await CM.getUserConsents();`
+
 Get array of existing consent contract addresses where account is subject
 `let sc = await CM.getSubjectConsents();`
+
 Get consent contract for for swarmHash 
 `let cf = await CM.getConsentsFor("0x" + swarmHash);`
+
 
 ##### Consent Contract Interface class
 Get consent contract with address
@@ -89,9 +98,7 @@ or if subject signed it
 `let ss = await consent.isSubjectSigned();`
 
 Alternatively you user or subject can sign directly using 
-`await consent.signUser();` 
-or
-`await consent.signSubject();`
+`await consent.signUser();` or `await consent.signSubject();`
 
 Check consent status meanings
    - 0 - waiting for signatures
@@ -108,6 +115,9 @@ Existing consents can be updated with new consents. Old consent is invalidate, a
 To get updated consent contract address use:
 `let isUpdated = await consent.isUpdatedWith();` 
 In order to get latest consent, recursevly interate until address returned is 0x0. 
+
+
+
 
 ### Sample usage
 `let fd = new DataReceiptLib();`
