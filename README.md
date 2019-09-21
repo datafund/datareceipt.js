@@ -65,23 +65,19 @@ Send token to accountName
 ##### How to use Consent Manager and Consent smart contracts
 This part uses blockchain addresses directly.
 
-Get account address 
-`let userAddress    = fd.account.address;`
-Get address of receiver subject 
-`let subjectAddress = await fd.account.getAddressOf(subjectName);`
-Get consent manager contract
- `let CM = await fd.getConsentManager();`
-Create consent contract
- `let tx = await CM.createConsent(userAddress, subjectAddress, "0x" + swarmHash);`
+Get account address `let userAddress    = fd.account.address;`
 
-Get array of existing consent contract addresses where account is user
-`let uc = await CM.getUserConsents();`
+Get address of receiver subject `let subjectAddress = await fd.account.getAddressOf(subjectName);`
 
-Get array of existing consent contract addresses where account is subject
-`let sc = await CM.getSubjectConsents();`
+Get consent manager contract `let CM = await fd.getConsentManager();`
 
-Get consent contract for for swarmHash 
-`let cf = await CM.getConsentsFor("0x" + swarmHash);`
+Create consent contract `let tx = await CM.createConsent(userAddress, subjectAddress, "0x" + swarmHash);`
+
+Get array of existing consent contract addresses where account is user `let uc = await CM.getUserConsents();`
+
+Get array of existing consent contract addresses where account is subject `let sc = await CM.getSubjectConsents();`
+
+Get consent contract for for swarmHash `let cf = await CM.getConsentsFor("0x" + swarmHash);`
 
 
 ##### Consent Contract Interface class
