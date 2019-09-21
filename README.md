@@ -97,7 +97,8 @@ Check consent status meanings
    - 0 - waiting for signatures
    - 1 - active 
    - 2 - expired
-   - 3 - revoked 
+   - 3 - revoked
+  
 `let status = await consent.status();`
 
 ##### Updating existing consents
