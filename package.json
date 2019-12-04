@@ -2,7 +2,7 @@
   "name": "@datafund/data-receipt",
   "version": "0.1.30",
   "main": "lib/index.js",
-  "description": "DataReceipt library uses fds.js library to send consent receipt files over Swarm to another account",
+  "description": "DataReceipt library simplifies sending and signing consents. Uses fds.js library to send consent receipt files over Swarm to another account",
   "repository": {
     "type": "git",
     "url": "https://github.com/datafund/datareceipt.js"
