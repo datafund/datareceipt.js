@@ -1,6 +1,6 @@
 {
   "name": "@datafund/data-receipt",
-  "version": "0.1.25",
+  "version": "0.1.30",
   "main": "lib/index.js",
   "description": "DataReceipt library uses fds.js library to send consent receipt files over Swarm to another account",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "eth-crypto": "^1.3.4",
-    "fds.js": "git+https://github.com/fairDataSociety/fds.js.git#multibox",
+    "fds.js": "git+https://github.com/fairDataSociety/fds.js.git",
     "jsonwebtoken": "^8.5.1",
     "web3-utils": "^1.0.0-beta.55"
   },
